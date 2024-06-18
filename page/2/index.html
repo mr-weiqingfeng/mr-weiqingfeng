@@ -124,18 +124,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -164,6 +164,124 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/01/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wei">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wei">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/01/17/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">设计模式-策略模式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-17 11:20:52" itemprop="dateCreated datePublished" datetime="2020-01-17T11:20:52Z">2020-01-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-28 03:57:36" itemprop="dateModified" datetime="2024-02-28T03:57:36Z">2024-02-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>在策略模式中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。</p>
+<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>模拟各种鸭子，并且这些鸭子会游泳，会呱呱叫。</p>
+<h5 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h5><p>通常，我们会设计一个鸭子父类，这个父类包含了一些抽象方法，并让各种鸭子继承此父类：</p>
+<p>鸭子父类 Duck.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Duck</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*所有的鸭子都会会游泳，所以放在父类统一处理*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swim</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鸭子游呀游&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*每种鸭子有不同的外观，留给子类具体实现*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>红头鸭 RedHeadDuck.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedHeadDuck</span> <span class="keyword">extends</span> <span class="title class_">Duck</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;红头鸭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>绿头鸭 RedHeadDuck.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GreenHeadDuck</span> <span class="keyword">extends</span> <span class="title class_">Duck</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;绿头鸭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>到目前为止，具体的鸭子类都能正常表现自己的行为。接下来，我们要求鸭子具有会飞的行为，可能第一时间会想到在父类中再加多一个<code>fly()</code>方法，<br>我们知道，并非所有的子类都具有飞行\叫的行为（玩具鸭），我们当然可以在实现子类时覆盖父类的行为，使子类什么都不做，但这并不是很好的设计方案，<br>因为每次有新的鸭子出现，都要去检查是不是需要覆盖父类方法，我们应该用一个更清晰的方法，让”某些”鸭子类型可飞或可叫。</p>
+<p>如果把飞和叫的行为设计成接口呢？试想一下，如果把行为设计成接口，每一种具备这种行为的鸭子都需要继承并实现，虽然子类可以自行选择自己能够实现的行为，<br>却造成代码无法复用。</p>
+<h5 id="从零开始"><a href="#从零开始" class="headerlink" title="从零开始"></a>从零开始</h5><blockquote>
+<p>设计原则：找出应用中可能需要变化之处，把他们独立出来，不要和那些不需要变化的代码混在一起。</p>
+</blockquote>
+<p>我们知道鸭子<code>fly()</code>和<code>quack()</code>会随着鸭子的不同而改变，将它们从<code>Duck</code>类中取出来，用一组新类来表示每个行为。</p>
+<blockquote>
+<p>设计原则：针对家口编程，而不是针对实现编程。</p>
+</blockquote>
+<p>我们利用接口代表每个行为，再设计多个具体类实现接口，实际的实现不会被绑定到鸭子类，这样，我们就可以在运行时动态地改变鸭子的飞和叫的具体表现。</p>
+<p>FlyBehavior.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">FlyBehavior</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>FlyNoWay.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlyNoWay</span> <span class="keyword">implements</span> <span class="title class_">FlyBehavior</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;我不会飞&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>FlyWithWings.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FlyWithWings</span> <span class="keyword">implements</span> <span class="title class_">FlyBehavior</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;我用翅膀飞&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Duck.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Duck</span> &#123;</span><br><span class="line"></span><br><span class="line">    FlyBehavior flyBehavior;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">swim</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;鸭子游呀游&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*每种鸭子有不同的外观，留给子类具体实现*/</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setFlyBehavior</span><span class="params">(FlyBehavior behavior)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.flyBehavior = behavior;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">performFly</span><span class="params">()</span>&#123;</span><br><span class="line">        flyBehavior.fly();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>RedHeadDuck.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedHeadDuck</span> <span class="keyword">extends</span> <span class="title class_">Duck</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">display</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;我是红头鸭&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点：</p>
+<ol>
+<li>算法可以自由切换</li>
+<li>避免使用多重条件判断</li>
+<li>扩展性好</li>
+</ol>
+<p>缺点： </p>
+<ol>
+<li>策略类会增多</li>
+<li>所有策略类都需要对外暴露<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4></li>
+<li>如果在一个系统里面有许多类，他们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。</li>
+<li>一个系统需要动态地在几种算法中选择一种。</li>
+<li>如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1017,111 +1135,6 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pipe, Process</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">conn</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        msg = conn.recv()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> msg:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="built_in">print</span>(msg)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conn1, conn2 = Pipe()</span><br><span class="line">    Process(target=func, args=(conn2,)).start()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        conn1.send(<span class="string">&#x27;Hello %s&#x27;</span> % i)</span><br><span class="line">    conn1.send(<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># Hello 0</span></span><br><span class="line"><span class="comment"># Hello 1</span></span><br><span class="line"><span class="comment"># Hello 2</span></span><br><span class="line"><span class="comment"># Hello 3</span></span><br><span class="line"><span class="comment"># Hello 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
 <p>或者可以通过捕获异常的方式处理。<strong>在管道两端关闭不用的端口，再执行<code>recv()</code>方法时才会因为所有进程中输入&#x2F;输出端口关闭而抛出<code>EOFError</code>异常:</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Pipe, Process</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">conn1, conn2</span>):</span><br><span class="line">    conn1.close()</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            msg = conn2.recv()</span><br><span class="line">            <span class="built_in">print</span>(msg)</span><br><span class="line">        <span class="keyword">except</span> EOFError:</span><br><span class="line">            conn2.close()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    conn1, conn2 = Pipe()</span><br><span class="line">    Process(target=func, args=(conn1, conn2)).start()</span><br><span class="line">    conn2.close()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        conn1.send(<span class="string">&#x27;Hello %s&#x27;</span> % i)</span><br><span class="line">    conn1.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># Hello 0</span></span><br><span class="line"><span class="comment"># Hello 1</span></span><br><span class="line"><span class="comment"># Hello 2</span></span><br><span class="line"><span class="comment"># Hello 3</span></span><br><span class="line"><span class="comment"># Hello 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2018/12/26/Python-%E9%98%9F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="wei">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wei">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/12/26/Python-%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">Python-队列</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-12-26 11:05:10" itemprop="dateCreated datePublished" datetime="2018-12-26T11:05:10Z">2018-12-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-28 03:57:36" itemprop="dateModified" datetime="2024-02-28T03:57:36Z">2024-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><p>队列<code>Queue</code>遵循 <strong>先进先出</strong> 的原则</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">q = Queue(<span class="number">2</span>)</span><br><span class="line">q.put(<span class="number">1</span>)</span><br><span class="line">q.put(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(q.full())</span><br><span class="line">q.put(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><code>Queue</code>中的参数表示队列大小，代码中q的容量是2，当放入两个值时，q进入阻塞状态，<code>q.full()</code>方法判断队列是否已满。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">q = Queue(<span class="number">2</span>)</span><br><span class="line">q.put(<span class="number">1</span>)</span><br><span class="line">q.put(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(q.full())</span><br><span class="line"><span class="built_in">print</span>(q.get())</span><br><span class="line"><span class="built_in">print</span>(q.get())</span><br><span class="line">q.put(<span class="number">3</span>)</span><br><span class="line">q.put(<span class="number">4</span>)</span><br><span class="line"><span class="built_in">print</span>(q.full())</span><br><span class="line">q.put(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><code>q.get()</code>方法从队列中取值，取出一个值后，队列中空出一个位，后面可以继续往里面放值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">q = Queue(<span class="number">2</span>)</span><br><span class="line">q.put(<span class="number">1</span>)</span><br><span class="line">q.get()</span><br><span class="line"><span class="built_in">print</span>(q.empty())</span><br><span class="line"><span class="built_in">print</span>(q.get())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><code>q.empty()</code>方法判断队列是否已空，当队列为空的时候，<code>q.get()</code>会阻塞在当前位置。<br><strong>注意，<code>q.full()</code>和<code>q.empty()</code>不是进程安全的，结果是不可靠的。假设A进程通过<code>q.empty()</code>查询队列是否为空时，返回<code>True</code>，恰恰下一瞬间B进程往队列里放了数据，而此时队列中并不为空。</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">q = Queue(<span class="number">2</span>)</span><br><span class="line">q.put(<span class="number">1</span>)</span><br><span class="line">q.get()</span><br><span class="line"><span class="built_in">print</span>(q.empty())</span><br><span class="line"><span class="built_in">print</span>(q.get_nowait())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File &quot;/Users/wei/Desktop/StormFeng.github.io/myblog/test.py&quot;, line 7, in &lt;module&gt;</span></span><br><span class="line"><span class="comment">#     print(q.get_nowait())</span></span><br><span class="line"><span class="comment">#   File &quot;/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/queues.py&quot;, line 126, in get_nowait</span></span><br><span class="line"><span class="comment">#     return self.get(False)</span></span><br><span class="line"><span class="comment">#   File &quot;/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/multiprocessing/queues.py&quot;, line 107, in get</span></span><br><span class="line"><span class="comment">#     raise Empty</span></span><br><span class="line"><span class="comment"># queue.Empty</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 1</span></span><br></pre></td></tr></table></figure>
-<p>调用<code>q.get_nowait()</code>不会阻塞进程，但是当队列为空的时候会报异常，可以通过 <code>try...except...</code>捕获异常。</p>
-<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p><strong>生产者消费者模型</strong><br>顾客去包子店买包子，要等到老板把包子做出来之后才能买。在代码中，老板把包子放进队列中，顾客通过<code>q.get()</code>方法感知包子已经生产出来了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Queue, Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">produce</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        q.put(<span class="string">&#x27;包子&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">consume</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;哈哈，买到%s了&#x27;</span> % q.get())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    q = Queue()</span><br><span class="line">    Process(target=produce, args=(q,)).start()</span><br><span class="line">    Process(target=consume, args=(q,)).start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>可以看出，生产者生产了4个包子，消费者通过<code>q.get()</code>方法感知到包子生产出来，当生产者生产完之后，消费者阻塞在<code>q.get()</code>仍然在等待。<br>解决上面这个问题，可以用<code>JoinableQueue</code>代替<code>Queue</code>，<code>JoinableQueue</code>比<code>Queue</code>多出两个方法<code>task_done()</code>、<code>q.join()</code>。假设队列有一个计数器，<code>q.put()</code>相当于计数器加一，<code>q.task_done()</code>相当于计数器减一;<code>q.join()</code>方法感知一个队列中的数据全部被执行完毕。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> JoinableQueue, Process</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">produce</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        q.put(<span class="string">&#x27;包子&#x27;</span>)</span><br><span class="line">    q.join()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">consume</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;哈哈，买到%s了&#x27;</span> % q.get())</span><br><span class="line">        q.task_done()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    q = JoinableQueue()</span><br><span class="line">    p = Process(target=produce, args=(q,))</span><br><span class="line">    c = Process(target=consume, args=(q,))</span><br><span class="line"></span><br><span class="line">    p.start()</span><br><span class="line">    c.daemon = <span class="literal">True</span></span><br><span class="line">    c.start()</span><br><span class="line">    p.join()</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"><span class="comment"># 哈哈，买到包子了</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
-<p>c 设置成守护进程，意味着会随着主进程执行完毕自动结束，消费者通过<code>q.task_done()</code>方法处理完数据，生产者中的<code>q.join()</code>方法不再阻塞，p进程结束，代码执行到<code>p.join()</code>，<code>p.join()</code>不再阻塞，主进程结束，随着主进程结束，守护进程 c 结束，代码执行完毕。</p>
-<p><strong>总结</strong></p>
-<ul>
-<li>生产者每生产一个数据，通过<code>put()</code>方法放进队列，<code>join()</code>方法表示已经停止生产数据，且要等待生产的数据都处理完毕，当消费者处理完所有的数据，<code>join()</code>方法不再阻塞。</li>
-<li>消费者每消费一个数据，通过<code>task_done()</code>方法表示一个数据已经处理完成，当所有的数据处理完，生产者的<code>join()</code>方法感知到数据处理完，不再阻塞，进程结束。</li>
-<li>生产者在主进程中通过<code>join()</code>方法感知进程结束，当自己执行完毕，主进程中代码结束。</li>
-<li>消费者把自己设置成守护进程，当主进程结束，消费者进程会随着结束，代码执行完毕。</li>
-</ul>
 
       
     </div>
